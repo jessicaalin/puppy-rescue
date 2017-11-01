@@ -76,15 +76,7 @@ var points = 0;
 function draw () {
   var caught = false;
 
-  // collision detection
-  if (box.x < myPuppies[0].x + myPuppies[0].width &&
-      box.x + box.width > myPuppies[0].x &&
-      box.y < myPuppies[0].y + myPuppies[0].height &&
-      box.height + box.y > myPuppies[0].y) {
-        points+=1;
-        console.log('Points: '+ points);
-        return;
-      }
+
 
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -92,6 +84,18 @@ function draw () {
   myPuppies.forEach(function (onePuppy) {
     onePuppy.y += 2;
     onePuppy.draw();
+
+    // collision detection
+    if (box.x < myPuppies[0].x + myPuppies[0].width &&
+        box.x + box.width > myPuppies[0].x &&
+        box.y < myPuppies[0].y + myPuppies[0].height &&
+        box.height + box.y > myPuppies[0].y) {
+          points+=1;
+          //removes puppy from page without compromising score
+          onePuppy.y += NaN;
+          console.log('Points: '+ points);
+        }
+
 
 
   });
