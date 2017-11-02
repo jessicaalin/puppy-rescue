@@ -27,7 +27,6 @@ var loseBox = {
   width: 500,
   height: 50,
   draw: function() {
-      ctx.fillStyle = 'burlywood';
       ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 };
@@ -54,7 +53,7 @@ Puppies.prototype.draw = function () {
 
 
 var myPuppies = [
-              // random x spawn     spawn y above
+                             // random x spawn                                    random spawn y above
   new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
   new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
   new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
@@ -63,12 +62,10 @@ var myPuppies = [
 
 
 function makePuppies() {
-
   for (var i=0; i < 1; i++ ) {
   myPuppies.push(new Puppies((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40));
   console.log(myPuppies);
   }
-
 }
 
 
@@ -77,22 +74,25 @@ function drawPuppies(){
     onePuppy.y += 0.3;
     onePuppy.draw();
 
+    // collision detection for catching box
     while (catchBox.x < onePuppy.x + onePuppy.width &&
       catchBox.x + catchBox.width > onePuppy.x &&
       catchBox.y < onePuppy.y + onePuppy.height &&
       catchBox.height + catchBox.y > onePuppy.y) {
         points+=1;
-        //removes puppy from page without compromising score
+        //removes puppy from canvas without compromising score
         onePuppy.y += NaN;
         console.log('Points: '+ points);
       }
-    if (loseBox.x < onePuppy.x + onePuppy.width &&
+
+    // collision detection for losing box
+    while (loseBox.x < onePuppy.x + onePuppy.width &&
       loseBox.x + loseBox.width > onePuppy.x &&
       loseBox.y < onePuppy.y + onePuppy.height &&
       loseBox.height + loseBox.y > onePuppy.y) {
+        //removes puppy from canvas
         onePuppy.y += NaN;
         console.log('you lost a puppy :\(');
-        return;
       }
 
     // change speed at certain points
@@ -144,20 +144,17 @@ setInterval(makePuppies, 3000);
 // }
 
 
-// draw
+// draw!
 
 function draw () {
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-
   drawPuppies();
 
-  catchBox.draw();
+  catchBox.draw(); //leave here so it is in front of puppies
 
-  // catchBox.forEach(function(myBox) {
-  //   myBox.draw(); //leave here so it is in front of puppies
-  //   // checks catchBox collision with walls
+    // checks catchBox collision with walls
     if (catchBox.x <= 0) {
         catchBox.x = 0;
         console.log('you\'re hitting the wall, dummy');
@@ -189,15 +186,3 @@ document.addEventListener("keydown", function() {
           break;
   }
 });
-
-
-
-// while (box.x < canvas.width &&
-//   // box.x + box.width > canvas.x &&
-//   box.y < canvas.height)
-//   // box.height + box.y > canvas.1;
-//     //removes puppy from page without compromising score
-//     console.log('you hit the wall dummy');
-//     // return;
-//
-//   }
