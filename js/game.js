@@ -5,6 +5,9 @@ var ctx = canvas.getContext('2d');
 var points = 0;
 var lostPuppies = 0;
 
+// var loseModal = document.querySelector('#lose-modal');
+// loseModal.hide();
+
 
 // ths is the box used to catch the puppies
 
@@ -38,7 +41,6 @@ var loseBox = {
 var puppyBlack = new Image();
 puppyBlack.src = './images/puppyImage.svg';
 
-
 function Puppies (x, y, image, isLoaded, width, height) {
   this.x = x
   this.y = y
@@ -52,27 +54,24 @@ Puppies.prototype.draw = function () {
   ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
 };
 
-
 var myPuppies = [
                              // random x spawn                                    random spawn y above
-  new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
+  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
+  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
+  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
+  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
 ];
-
 
 function makePuppies() {
   for (var i=0; i < 1; i++ ) {
-  myPuppies.push(new Puppies((Math.floor(Math.random() * canvas.width)) - 40, (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40));
+  myPuppies.push(new Puppies((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40));
   console.log(myPuppies);
   }
 }
 
-
 function drawPuppies(){
   myPuppies.forEach(function (onePuppy) {
-    onePuppy.y += 0.3;
+    onePuppy.y += 1;
     onePuppy.draw();
 
     // collision detection for catching box
@@ -99,25 +98,26 @@ function drawPuppies(){
 
     // change speed at certain points
     if (points >= 25) {
-      onePuppy.y += 12;
+      onePuppy.y += 1;
     }
     else if (points >= 20) {
-      onePuppy.y += 9;
+      onePuppy.y += 1;
     }
     else if (points >= 15) {
-      onePuppy.y += 6;
+      onePuppy.y += 1;
     }
     else if (points >= 10) {
-      onePuppy.y += 3;
+      onePuppy.y += 1;
     }
     else if (points >= 5) {
         onePuppy.y += 1;
     }
 
-
+    // losing mechanism
     if (lostPuppies >= 5) {
 
       window.location.href = "index.html"
+      // loseModal.show();
       alert('You lost too many puppies; you can never play with puppies again :\(')
       cancelAnimationFrame();
       return;
@@ -127,7 +127,7 @@ function drawPuppies(){
 }
 
 
-// losing mechanism
+
 
 
 
