@@ -69,8 +69,6 @@ function makePuppies() {
 }
 
 
-
-
 function drawPuppies(){
   myPuppies.forEach(function (onePuppy) {
     onePuppy.y += 0.3;
@@ -98,58 +96,50 @@ function drawPuppies(){
 
       // change speed at y
 
-      // if (points >= 1) {
-      //     onePuppy.y += 1;
-      //   }
-      // if (points >= 3) {
-      //   onePuppy.y += 3;
-      // }
-      // else if (points >= 6) {
-      //   onePuppy.y += 6;
-      // }
-      // else if (points >= 9) {
-      //   onePuppy.y += 9;
-      // }
-      // else if (points >= 12) {
-      //   onePuppy.y += 12;
-      // }
-      // else {
-      // }
+      else if (points >= 25) {
+        onePuppy.y += 12;
+      }
+      else if (points >= 20) {
+        onePuppy.y += 9;
+      }
+      else if (points >= 15) {
+        onePuppy.y += 6;
+      }
+      else if (points >= 10) {
+        onePuppy.y += 3;
+      }
+      else if (points >= 5) {
+          onePuppy.y += 1;
+      }
+      else {
+      }
   });
 }
 
 
 var intervalRate = 5000;
-if (points >= 1) {
-    onePuppy.y += 1;
-    intervalRate -= 1000;
+if (points >= 25) {
+  intervalRate = 500;
   }
-if (points >= 3) {
-  onePuppy.y += 3;
-  intervalRate -= 1000;
-}
-else if (points >= 6) {
-  onePuppy.y += 6;
-  intervalRate -= 1000;
-}
-else if (points >= 9) {
-  onePuppy.y += 9;
-  intervalRate -= 1000;
-}
-else if (points >= 12) {
-  onePuppy.y += 12;
-  intervalRate -= 500;
-}
+else if (points >= 20) {
+    intervalRate = 1000;
+  }
+else if (points >= 15) {
+    intervalRate = 500;
+  }
+else if (points >= 10) {
+    intervalRate = 1000;
+  }
+else if (points >= 5) {
+    intervalRate = 4000;
+  }
 else {
-  onePuppy.y = 1;
   intervalRate = 5000;
 }
 setInterval(makePuppies, intervalRate);
 
 
 // draw
-
-
 
 function draw () {
 
