@@ -119,6 +119,7 @@ function drawPuppies(){
 
       window.location.href = "index.html"
       alert('You lost too many puppies; you can never play with puppies again :\(')
+      cancelAnimationFrame();
       return;
     }
 
