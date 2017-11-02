@@ -1,22 +1,4 @@
 
-// switch (event.keyCode) {
-//       // case 32: //space bar
-//       //   tetromino.y += 20;
-//       //   break;
-//       case 37: //left arrow
-//         tetromino.x -= 1;
-//         break;
-//       // case 38: //up arrow
-//       //   tetromino.y -= 1;
-//       //   break;
-//       case 39: //right arrow
-//         tetromino.x += 1;
-//         break;
-//       case 40: //down arrow
-//         tetromino.y += 1;
-//         break;
-// }
-
 
 var playButton = $('.play-button');
 var helpButton = $('.help-button');
@@ -29,7 +11,6 @@ var gameContainer = $('.game-container');
 gameContainer.hide(); //commenting out for now, remove comment later
 retryButton.hide();
 //menuDiv.hide(); //hiding out for now, remove this code later
-
 
 playButton.click(function () {
   console.log('play marathon clicked');
@@ -67,6 +48,3 @@ retryButton.click(function () {
 //   helpModal.modal('hide');
 //   aboutModal.modal('show');
 // });//this works, do not touch!
-
-
-//canvas stuff
