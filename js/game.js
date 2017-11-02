@@ -115,33 +115,32 @@ function drawPuppies(){
 }
 
 
-setInterval(makePuppies, 3000);
+// timeout function to increase based on points
 
+var delay = 3000;
+setTimeout(function () {
+    delay = 3000
+}, 3000);
 
-// setInterval(makePuppies, 1000);
-// clearInterval(makeMorePuppies);
-// var intervalRate = 5000;
-// function updateRate() {
-//   if (points >= 25) {
-//     intervalRate = 500;
-//     }
-//   // else if (points >= 20) {
-//   //     intervalRate = 1000;
-//   //   }
-//   // else if (points >= 15) {
-//   //     intervalRate = 500;
-//   //   }
-//   // else if (points >= 10) {
-//   //     intervalRate = 1000;
-//   //   }
-//   // else if (points >= 5) {
-//   //     intervalRate = 4000;
-//   //   }
-//   else if (points >= 0) {
-//     intervalRate = 50000;
-//   }
-//   // return;
-// }
+function timeout() {
+    if (points >= 8) {
+      delay = 500;
+    }
+    else if (points >= 5) {
+      delay = 1000;
+    }
+    else if (points >= 3) {
+      delay = 2000;
+    }
+    else if (points >= 0) {
+
+    }
+    setTimeout(function () {
+        timeout();
+        makePuppies();
+    }, delay);
+};
+timeout();
 
 
 // draw!
