@@ -3,6 +3,7 @@ var ctx = canvas.getContext('2d');
 
 
 var points = 0;
+var lostPuppies = 0;
 
 
 // ths is the box used to catch the puppies
@@ -79,7 +80,7 @@ function drawPuppies(){
       catchBox.x + catchBox.width > onePuppy.x &&
       catchBox.y < onePuppy.y + onePuppy.height &&
       catchBox.height + catchBox.y > onePuppy.y) {
-        points+=1;
+        points += 1;
         //removes puppy from canvas without compromising score
         onePuppy.y += NaN;
         console.log('Points: '+ points);
@@ -90,6 +91,7 @@ function drawPuppies(){
       loseBox.x + loseBox.width > onePuppy.x &&
       loseBox.y < onePuppy.y + onePuppy.height &&
       loseBox.height + loseBox.y > onePuppy.y) {
+        lostPuppies += 1;
         //removes puppy from canvas
         onePuppy.y += NaN;
         console.log('you lost a puppy :\(');
@@ -111,8 +113,22 @@ function drawPuppies(){
     else if (points >= 5) {
         onePuppy.y += 1;
     }
+
+
+    if (lostPuppies >= 5) {
+
+      window.location.href = "index.html"
+      alert('You lost too many puppies; you can never play with puppies again :\(')
+      return;
+    }
+
   });
 }
+
+
+// losing mechanism
+
+
 
 
 // timeout function to increase based on points
