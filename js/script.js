@@ -192,10 +192,10 @@ function draw () {
   var animationRequest = requestAnimationFrame(draw);
 
   // losing mechanism
-  if (lostPuppies >= 1) {
+  if (lostPuppies >= 5) {
 
     $('.lose-modal').modal('show');
-    
+
     gameSE.pause();
     endgameSE.play();
     loseSE.play();
