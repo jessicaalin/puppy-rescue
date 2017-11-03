@@ -59,18 +59,22 @@ Puppies.prototype.draw = function () {
   ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
 };
 
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 var myPuppies = [
                              // random x spawn                                    random spawn y above
                              // find way to make DRY  - not working right now
-  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
-  new Puppies ((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40),
+  new Puppies (getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40),
+  new Puppies (getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40),
+  new Puppies (getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40),
+  new Puppies (getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40),
 ];
 
 function makePuppies() {
   for (var i=0; i < 1; i++ ) {
-  myPuppies.push(new Puppies((Math.floor(Math.random() * canvas.width)), (Math.floor(Math.random() * 300)) - 310, puppyBlack, false, 40, 40));
+  myPuppies.push(new Puppies(getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40));
   console.log(myPuppies);
   }
 }
@@ -183,7 +187,7 @@ function draw () {
   var animationRequest = requestAnimationFrame(draw);
 
   // losing mechanism
-  if (lostPuppies >= 5) {
+  if (lostPuppies >= 30) {
     $('.lose-modal').modal('show');
 
     cancelAnimationFrame(animationRequest);
