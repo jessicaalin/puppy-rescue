@@ -6,15 +6,15 @@ var points = 0;
 var lostPuppies = 0;
 var puppiesSaved = $('.puppies-saved');
 var puppiesLost = $('.puppies-lost');
-var gameSE = new Audio('audio/game.mp3');
-var caughtSE = new Audio('audio/caught-puppy.mp3')
-var lostSE = new Audio('audio/lost-puppy.mp3');
-var loseSE = new Audio('audio/lose-sound.mp3');
-var endgameSE = new Audio ('audio/game-end.mp3')
+var gameSFX = new Audio('audio/game.mp3');
+var caughtSFX = new Audio('audio/caught-puppy.mp3')
+var lostSFX = new Audio('audio/lost-puppy.mp3');
+var loseSFX = new Audio('audio/ruh-roh.mp3');
+var endgameSFX = new Audio ('audio/game-end.mp3')
 var retryButton = document.querySelector('.retry-button');
 
-gameSE.loop = true;
-gameSE.play();
+gameSFX.loop = true;
+gameSFX.play();
 
 
 $('.lose-modal').modal('hide')
@@ -100,7 +100,7 @@ function drawPuppies(){
         onePuppy.y += NaN;
         puppiesSaved.empty();
         puppiesSaved.append(points);
-        caughtSE.play();
+        caughtSFX.play();
       }
 
     // collision detection for losing box
@@ -113,7 +113,7 @@ function drawPuppies(){
         onePuppy.y += NaN;
         puppiesLost.empty();
         puppiesLost.append(lostPuppies);
-        lostSE.play();
+        lostSFX.play();
       }
 
     // change speed at certain points
@@ -196,9 +196,9 @@ function draw () {
 
     $('.lose-modal').modal('show');
 
-    gameSE.pause();
-    endgameSE.play();
-    loseSE.play();
+    gameSFX.pause();
+    endgameSFX.play();
+    loseSFX.play();
 
     cancelAnimationFrame(animationRequest);
     return;

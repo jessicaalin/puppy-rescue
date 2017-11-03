@@ -74,3 +74,23 @@ canvas {
 .puppies-saved {
   margin-right: 40px;
 }
+
+.images img {
+  width: 30%;
+  /*display: block;*/
+  align-self: center;
+}
+
+.images {
+  width: 600px;
+  justify-content: center;
+  display: flex;
+  flex-flow: row nowrap;
+  margin: 0 auto;
+  padding: 70px 0;
+}
+
+.images .arrow {
+  width: 8%;
+  /*padding: 0px 10px;*/
+}
