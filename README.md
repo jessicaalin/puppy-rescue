@@ -12,7 +12,7 @@ Family by Swen-Peter Ekkebus from the Noun Project
 (https://thenounproject.com/search/?q=puppy&i=937163)
 
 Box by Rockicon from the Noun Project
-(https://thenounproject.com/search/?q=box&i=1175503)
+(https://thenounproject.com/search/?q=box&i=1262916)
 
 Dog by Mieks Lous from the Noun Project
 (https://thenounproject.com/search/?q=family%20dog&i=1200539)
