@@ -57,3 +57,8 @@ p {
 .game-header {
   padding: 59px 0 49px 0;
 }
+
+.lose-modal {
+  background-color: azure;
+  font-size: 30px;
+}
