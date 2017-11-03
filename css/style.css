@@ -26,6 +26,7 @@ p {
   font-family: 'Raleway', sans-serif;
 }
 
+body,
 .menu-div {
   display: flex;
   text-align: center;
@@ -52,6 +53,7 @@ p {
 .modal {
   color: dimgray;
   margin: 200px auto;
+  font-size: 20px;
 }
 
 .game-header {
@@ -59,6 +61,14 @@ p {
 }
 
 .lose-modal {
-  background-color: azure;
-  font-size: 30px;
+  font-size: 20px;
+}
+
+.lose-modal button {
+  background-color: rgb(220, 220, 220);
+  color: white;
+}
+
+canvas {
+  border: 2px solid black;
 }

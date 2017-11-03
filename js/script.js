@@ -5,10 +5,10 @@ var ctx = canvas.getContext('2d');
 var points = 0;
 var lostPuppies = 0;
 
-var loseModal = document.querySelector('.lose-modal');
-// loseModal.style.visibility = "hidden";
+// var loseModal = document.querySelector('.lose-modal');
+// loseModal.modal('hide');
+$('.lose-modal').modal('hide')
 var retryButton = document.querySelector('.retry-button');
-
 
 
 // this is the box used to catch the puppies
@@ -174,7 +174,7 @@ function draw () {
 
   // losing mechanism
   if (lostPuppies >= 5) {
-    // loseModal.style.visibility = "visible";
+    $('.lose-modal').modal('show')
 
     cancelAnimationFrame(animationRequest);
     return;
