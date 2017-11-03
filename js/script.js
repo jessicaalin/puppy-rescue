@@ -6,6 +6,8 @@ var points = 0;
 var lostPuppies = 0;
 var puppiesSaved = $('.puppies-saved');
 var puppiesLost = $('.puppies-lost');
+var caughtSE = new Audio('audio/caught-puppy.mp3')
+var lostSE = new Audio('audio/lost-puppy.mp3');
 
 
 $('.lose-modal').modal('hide')
@@ -88,6 +90,7 @@ function drawPuppies(){
         onePuppy.y += NaN;
         puppiesSaved.empty();
         puppiesSaved.append(points);
+        caughtSE.play();
       }
 
     // collision detection for losing box
@@ -100,6 +103,7 @@ function drawPuppies(){
         onePuppy.y += NaN;
         puppiesLost.empty();
         puppiesLost.append(lostPuppies);
+        lostSE.play();
       }
 
     // change speed at certain points
