@@ -111,17 +111,20 @@ function drawPuppies(){
       }
 
     // change speed at certain points
-    if (points >= 25) {
-      onePuppy.y += 1;
+    if (points >= 30) {
+      onePuppy.y += 6;
+    }
+    else if (points >= 25) {
+      onePuppy.y += 5;
     }
     else if (points >= 20) {
-      onePuppy.y += 1;
+      onePuppy.y += 4;
     }
     else if (points >= 15) {
-      onePuppy.y += 1;
+      onePuppy.y += 3;
     }
     else if (points >= 10) {
-      onePuppy.y += 1;
+      onePuppy.y += 2;
     }
     else if (points >= 5) {
         onePuppy.y += 1;
@@ -130,8 +133,6 @@ function drawPuppies(){
   });
 
 }
-
-
 
 
 // timeout function to increase based on points
@@ -175,11 +176,9 @@ function draw () {
     // checks catchBox collision with walls
     if (catchBox.x <= 0) {
         catchBox.x = 0;
-        console.log('you\'re hitting the wall, dummy');
     }
     if (catchBox.x >= 430) {
         catchBox.x = 410;
-        console.log('you\'re hitting the wall, dummy');
     }
 
   loseBox.draw();
@@ -187,7 +186,7 @@ function draw () {
   var animationRequest = requestAnimationFrame(draw);
 
   // losing mechanism
-  if (lostPuppies >= 30) {
+  if (lostPuppies >= 5) {
     $('.lose-modal').modal('show');
 
     cancelAnimationFrame(animationRequest);
