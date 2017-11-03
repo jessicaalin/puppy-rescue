@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Raleway:400,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700|Acme');
 
 * {
   margin: 0 auto;
@@ -16,7 +16,7 @@ canvas {
 }
 
 h1 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Acme', sans-serif;
   font-size: 100px;
   font-weight: 400;
   padding: 50px 0;

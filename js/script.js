@@ -6,12 +6,18 @@ var points = 0;
 var lostPuppies = 0;
 var puppiesSaved = $('.puppies-saved');
 var puppiesLost = $('.puppies-lost');
+var gameSE = new Audio('audio/game.mp3');
 var caughtSE = new Audio('audio/caught-puppy.mp3')
 var lostSE = new Audio('audio/lost-puppy.mp3');
+var loseSE = new Audio('audio/lose-sound.mp3');
+var endgameSE = new Audio ('audio/game-end.mp3')
+var retryButton = document.querySelector('.retry-button');
+
+gameSE.loop = true;
+gameSE.play();
 
 
 $('.lose-modal').modal('hide')
-var retryButton = document.querySelector('.retry-button');
 
 
 // this is the box used to catch the puppies
@@ -186,8 +192,13 @@ function draw () {
   var animationRequest = requestAnimationFrame(draw);
 
   // losing mechanism
-  if (lostPuppies >= 5) {
+  if (lostPuppies >= 1) {
+
     $('.lose-modal').modal('show');
+    
+    gameSE.pause();
+    endgameSE.play();
+    loseSE.play();
 
     cancelAnimationFrame(animationRequest);
     return;
