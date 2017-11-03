@@ -4,9 +4,10 @@ var ctx = canvas.getContext('2d');
 
 var points = 0;
 var lostPuppies = 0;
+var puppiesSaved = $('.puppies-saved');
+var puppiesLost = $('.puppies-lost');
 
-// var loseModal = document.querySelector('.lose-modal');
-// loseModal.modal('hide');
+
 $('.lose-modal').modal('hide')
 var retryButton = document.querySelector('.retry-button');
 
@@ -85,7 +86,8 @@ function drawPuppies(){
         points += 1;
         //removes puppy from canvas without compromising score
         onePuppy.y += NaN;
-        console.log('Points: '+ points);
+        puppiesSaved.empty();
+        puppiesSaved.append(points);
       }
 
     // collision detection for losing box
@@ -96,7 +98,8 @@ function drawPuppies(){
         lostPuppies += 1;
         //removes puppy from canvas
         onePuppy.y += NaN;
-        console.log('you lost a puppy :\(');
+        puppiesLost.empty();
+        puppiesLost.append(lostPuppies);
       }
 
     // change speed at certain points
@@ -117,7 +120,10 @@ function drawPuppies(){
     }
 
   });
+
 }
+
+
 
 
 // timeout function to increase based on points
@@ -174,7 +180,7 @@ function draw () {
 
   // losing mechanism
   if (lostPuppies >= 5) {
-    $('.lose-modal').modal('show')
+    $('.lose-modal').modal('show');
 
     cancelAnimationFrame(animationRequest);
     return;
