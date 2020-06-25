@@ -1,6 +1,10 @@
+window.addEventListener('DOMContentLoaded', ()=>{
+  alert('DOM loaded, Al :D')
+  requestAnimationFrame(draw);
+})
+
 var canvas = document.querySelector('.my-game');
 var ctx = canvas.getContext('2d');
-
 
 var points = 0;
 var lostPuppies = 0;
@@ -16,8 +20,7 @@ var retryButton = document.querySelector('.retry-button');
 gameSFX.loop = true;
 gameSFX.play();
 
-
-$('.lose-modal').modal('hide')
+$('.lose-modal').modal('hide');
 
 
 // this is the box used to catch the puppies
@@ -53,8 +56,8 @@ var puppyBlack = new Image();
 puppyBlack.src = './images/puppyImage.svg';
 
 function Puppies (x, y, image, isLoaded, width, height) {
-  this.x = x
-  this.y = y
+  this.x = x;
+  this.y = y;
   this.image = image;
   this.isLoaded = false;
   this.width = width;
@@ -81,7 +84,7 @@ var myPuppies = [
 function makePuppies() {
   for (var i=0; i < 1; i++ ) {
   myPuppies.push(new Puppies(getRandom(0, 450), ((Math.random() * canvas.height - 410)), puppyBlack, false, 40, 40));
-  console.log(myPuppies);
+  // console.log(myPuppies);
   }
 }
 
@@ -95,6 +98,8 @@ function drawPuppies(){
       catchBox.x + catchBox.width > onePuppy.x &&
       catchBox.y < onePuppy.y + onePuppy.height &&
       catchBox.height + catchBox.y > onePuppy.y) {
+        // console.log(myPuppies[i]);
+        console.log(catchBox);
         points += 1;
         //removes puppy from canvas without compromising score
         onePuppy.y += NaN;
@@ -178,7 +183,8 @@ function draw () {
   drawPuppies();
 
   catchBox.draw(); //leave here so it is in front of puppies
-
+  // console.log(catchBox);
+  
     // checks catchBox collision with walls
     if (catchBox.x <= 0) {
         catchBox.x = 0;
@@ -205,7 +211,7 @@ function draw () {
   }
 }
 
-requestAnimationFrame(draw);
+//requestAnimationFrame(draw);
 
 
 // listener for lose modal to refresh page
