@@ -1,8 +1,3 @@
-window.addEventListener('DOMContentLoaded', ()=>{
-  alert('DOM loaded, Al :D')
-  requestAnimationFrame(draw);
-})
-
 var canvas = document.querySelector('.my-game');
 var ctx = canvas.getContext('2d');
 
